@@ -6,7 +6,7 @@
 #define NEW_HEXUS_E_KNOWLEDGE_LEXER_H
 
 typedef enum {
-    STRING,
+    OP,
     VAR,
     INT,
     END_OF_FILE

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "lexer.h"
 
 char *read_file(const char *path) {
     FILE *file = fopen(path, "rb");
@@ -28,7 +29,8 @@ char *read_file(const char *path) {
 int main() {
     char *content = read_file("file.he");
     if (content != NULL) {
-        printf("File content:\n%s\n", content);
+        int count = 0;
+        Token *tokens = tokenize(content, &count);
         free(content);
     }
     return 0;

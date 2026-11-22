@@ -1,2 +1,1 @@
-test = 3
-send "{test}, test" to console
+x = 3
