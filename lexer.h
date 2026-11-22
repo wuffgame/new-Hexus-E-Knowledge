@@ -5,4 +5,19 @@
 #ifndef NEW_HEXUS_E_KNOWLEDGE_LEXER_H
 #define NEW_HEXUS_E_KNOWLEDGE_LEXER_H
 
+typedef enum {
+    STRING,
+    VAR,
+    INT,
+    END_OF_FILE
+} TokenType;
+
+typedef struct {
+    TokenType type;
+    char *text;
+    int line;
+} Token;
+
+Token *tokenize(const char *src, int *out_count);
+
 #endif //NEW_HEXUS_E_KNOWLEDGE_LEXER_H
