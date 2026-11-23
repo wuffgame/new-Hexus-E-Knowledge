@@ -62,6 +62,18 @@ Token *tokenize(const char *src, int *out_count) {
             count++;
             i += len;
         }
+        else if (c == '\n') {
+            int len = 1;
+            char *word = malloc(len + 1);
+            memcpy(word, &src[i], len);
+            word[len] = '\0';
+            tokens = realloc(tokens, sizeof(Token) * (count + 1));
+            tokens[count].type = END_OF_FILE;
+            tokens[count].text = word;
+            tokens[count].line = 1;
+            count++;
+            i++;
+        }
 
         if (c == ' ') {
             i++;
