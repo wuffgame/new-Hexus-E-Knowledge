@@ -31,6 +31,10 @@ int main() {
     if (content != NULL) {
         int count = 0;
         Token *tokens = tokenize(content, &count);
+        printf("Find tokens: %d\n", count);
+        for (int i = 0; i < count; i++) {
+            printf("Token %d -> type: %d, text: %s\n", i, tokens[i].type, tokens[i].text);
+        }
         free(content);
     }
     return 0;

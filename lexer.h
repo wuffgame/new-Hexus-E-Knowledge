@@ -6,10 +6,10 @@
 #define NEW_HEXUS_E_KNOWLEDGE_LEXER_H
 
 typedef enum {
-    OP,
-    VAR,
-    INT,
-    END_OF_FILE
+    OP, // 0
+    VAR, // 1
+    INT, // 2
+    END_OF_FILE // 3
 } TokenType;
 
 typedef struct {
