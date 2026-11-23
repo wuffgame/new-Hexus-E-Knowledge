@@ -29,8 +29,33 @@ Token *tokenize(const char *src, int *out_count) {
             tokens[count].line = 1;
             count++;
         }
-        else {
+        else if (isalpha(c)) {
+            int start = i;
+            while (isalpha(c)) {
+                i++;
+                c = src[i];
+            }
+            int end = i;
+            int len = end - start;
+            char *word = malloc(len + 1);
+            memcpy(word, &src[start], len);
+            word[len] = '\0';
+            tokens = realloc(tokens, sizeof(Token) * (count + 1));
+            tokens[count].type = VAR;
+            tokens[count].text = word;
+            tokens[count].line = 1;
+            count++;
+        }
+
+        if (c == ' ') {
             i++;
+        }
+        else if (c == '\0') {
+            continue;
+        }
+        else {
+            printf("Error: No space between tokens\n");
+            exit(EXIT_FAILURE);
         }
     }
 
